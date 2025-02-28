@@ -96,6 +96,7 @@ private:
   // JFC: https://lastminuteengineers.com/wp-content/uploads/arduino/PS2-Joystick-Module-Movement-Analog-Values-on-Arduino.png
   int minimized(int rawValue) {
     if (rawValue > 448 && rawValue < 576) { return 0; }  // 512 +- 64
-    return -map(rawValue, 0, 1023 - 1, -resolution, resolution);
+    // apply curve transformation before map
+    return -map(rawValue, 0, 1023, -resolution, resolution);
   }
 };
