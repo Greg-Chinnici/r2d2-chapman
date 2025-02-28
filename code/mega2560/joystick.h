@@ -1,3 +1,6 @@
+#define LINEAR -1; 
+#define DYNAMIC 0; //sigmoid: x / (1 + abs(x))
+#define LOG 1; 
 
 class joystick {
 private:
@@ -13,7 +16,7 @@ private:
 public:
   //TODO: response curves, nonlinear coordinates and arbitrary mappings to results
 
-  joystick(int x_pin, int y_pin = -1, int button_pin = -1, int rotate = 90, int resolution_power = 3) {
+  joystick(uint8_t x_pin, int y_pin = -1, int button_pin = -1, int rotate = 90, uint8_t resolution_power = 3) {
     pinX = x_pin;
     pinY = y_pin;
     pinButton = button_pin;
